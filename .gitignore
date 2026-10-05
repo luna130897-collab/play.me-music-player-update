@@ -6,3 +6,11 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Android & Capacitor temporary builds
+android/app/build/
+android/.gradle/
+android/local.properties
+android/captures/
+android/.idea/
+android/*.iml
