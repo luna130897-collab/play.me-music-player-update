@@ -1,0 +1,393 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-display {
+    font-family: 'Righteous', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* =========================================================================
+   DYNAMIC THEME ACCENT & CONTRAST SYSTEM
+   Seluruh tema warna (kuning, hitam, biru tua, pink, magenta, dll.) 
+   dikalibrasi agar teks tajam dan sangat mudah dibaca.
+   ========================================================================= */
+:root {
+  --theme-accent: #eab308;
+  --theme-accent-text: #854d0e;
+  --theme-accent-btn-text: #0f172a;
+  --theme-accent-hover: #ca8a04;
+  --theme-accent-dark: #a16207;
+  --theme-accent-light: rgba(234, 179, 8, 0.22);
+  --theme-accent-subtle: rgba(234, 179, 8, 0.35);
+  --theme-accent-border: rgba(202, 138, 4, 0.42);
+  --theme-gradient: linear-gradient(135deg, #facc15 0%, #f59e0b 100%);
+}
+
+/* Glassmorphism Transparent Aesthetics (Light Themes Default) */
+.glass-morph {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 
+    0 10px 30px -6px rgba(0, 0, 0, 0.06),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-morph-subtle {
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.glass-morph-tab {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--theme-accent-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-morph-tab:hover {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: var(--theme-accent);
+  transform: translateY(-1px);
+}
+
+.glass-morph-tab-active {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: var(--theme-accent) !important;
+  box-shadow: 0 4px 16px var(--theme-accent-light), inset 0 1px 1px white !important;
+}
+
+/* =========================================================================
+   LIGHT THEME MODE TEXT CONTRAST (Warm Yellow, Soft Pink, Emerald Mint, Ice Cyan)
+   Teks tebal, gelap pekat, dan sangat kontras di atas kaca terang
+   ========================================================================= */
+.light-theme-mode .text-slate-900,
+.light-theme-mode .text-slate-800,
+.light-theme-mode .text-black {
+  color: #0f172a !important;
+}
+
+.light-theme-mode .text-slate-700,
+.light-theme-mode .text-slate-600 {
+  color: #1e293b !important;
+}
+
+.light-theme-mode .text-slate-500 {
+  color: #334155 !important;
+}
+
+.light-theme-mode .text-slate-400 {
+  color: #475569 !important;
+}
+
+/* =========================================================================
+   DARK THEME MODE STYLES (Pitch Black, Deep Navy, Midnight Amethyst, Cyber Magenta)
+   Memastikan kontras teks putih bersih dan kartu kaca gelap mewah sempurna
+   ========================================================================= */
+.dark-theme-mode {
+  color-scheme: dark;
+}
+
+.dark-theme-mode .glass-morph {
+  background: rgba(15, 23, 42, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 
+    0 16px 40px 0 rgba(0, 0, 0, 0.65),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+
+.dark-theme-mode .glass-morph-subtle {
+  background: rgba(15, 23, 42, 0.55) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme-mode .glass-morph-tab {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.dark-theme-mode .glass-morph-tab:hover {
+  background: rgba(30, 41, 59, 0.75) !important;
+}
+
+.dark-theme-mode .glass-morph-tab-active {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border-color: var(--theme-accent) !important;
+  box-shadow: 0 4px 16px var(--theme-accent-light), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Dark mode text readability */
+.dark-theme-mode .text-black,
+.dark-theme-mode .text-slate-900,
+.dark-theme-mode .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+.dark-theme-mode .text-slate-700,
+.dark-theme-mode .text-slate-600 {
+  color: #e2e8f0 !important;
+}
+
+.dark-theme-mode .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+.dark-theme-mode .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+.dark-theme-mode .text-black\/40 {
+  color: rgba(248, 250, 252, 0.45) !important;
+}
+.dark-theme-mode .text-black\/60 {
+  color: rgba(248, 250, 252, 0.65) !important;
+}
+.dark-theme-mode .text-black\/70 {
+  color: rgba(248, 250, 252, 0.75) !important;
+}
+
+/* White elements in dark mode */
+.dark-theme-mode .bg-white {
+  background-color: rgba(30, 41, 59, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #f8fafc !important;
+}
+
+.dark-theme-mode .hover\:bg-white:hover {
+  background-color: rgba(51, 65, 85, 0.95) !important;
+}
+
+.dark-theme-mode .bg-white\/60,
+.dark-theme-mode .bg-white\/70,
+.dark-theme-mode .bg-white\/80,
+.dark-theme-mode .bg-white\/85,
+.dark-theme-mode .bg-white\/90,
+.dark-theme-mode .bg-white\/95 {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #f8fafc !important;
+}
+
+.dark-theme-mode .hover\:bg-white\/70:hover,
+.dark-theme-mode .hover\:bg-white\/80:hover,
+.dark-theme-mode .hover\:bg-white\/90:hover {
+  background-color: rgba(51, 65, 85, 0.9) !important;
+}
+
+.dark-theme-mode .bg-white\/30,
+.dark-theme-mode .bg-white\/40,
+.dark-theme-mode .bg-white\/50 {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-theme-mode input,
+.dark-theme-mode textarea,
+.dark-theme-mode select {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.dark-theme-mode input::placeholder,
+.dark-theme-mode textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* =========================================================================
+   TRANSPARENT GLASS MODE FOR CUSTOM THEME / WALLPAPER
+   ========================================================================= */
+.custom-theme-active .glass-morph {
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 
+    0 12px 36px 0 rgba(0, 0, 0, 0.28),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+.custom-theme-active .glass-morph-subtle {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* =========================================================================
+   DYNAMIC COLOR OVERRIDES FOR THEME ACCENT & BUTTONS
+   ========================================================================= */
+/* Texts using theme accent text color */
+.text-pink-300,
+.text-pink-400,
+.text-pink-500,
+.text-pink-600,
+.text-pink-700,
+.text-pink-800,
+.text-pink-900 {
+  color: var(--theme-accent-text) !important;
+}
+
+.hover\:text-pink-600:hover,
+.hover\:text-pink-700:hover,
+.hover\:text-pink-800:hover,
+.group:hover .group-hover\:text-pink-600 {
+  color: var(--theme-accent-hover) !important;
+}
+
+/* Filled Accent Buttons with calibrated readable button text */
+.bg-pink-400,
+.bg-pink-500,
+.bg-pink-600,
+.bg-pink-700 {
+  background-color: var(--theme-accent) !important;
+  color: var(--theme-accent-btn-text) !important;
+}
+
+.bg-pink-400 *,
+.bg-pink-500 *,
+.bg-pink-600 *,
+.bg-pink-700 * {
+  color: var(--theme-accent-btn-text) !important;
+  stroke: var(--theme-accent-btn-text) !important;
+}
+
+.hover\:bg-pink-500:hover,
+.hover\:bg-pink-600:hover,
+.hover\:bg-pink-700:hover {
+  background-color: var(--theme-accent-hover) !important;
+}
+
+/* Light tint backgrounds */
+.bg-pink-50,
+.bg-pink-100,
+.bg-pink-100\/60,
+.bg-pink-100\/70,
+.bg-pink-100\/80,
+.bg-pink-200,
+.bg-pink-200\/50,
+.bg-pink-200\/60,
+.bg-pink-200\/70,
+.bg-pink-200\/80,
+.bg-pink-300 {
+  background-color: var(--theme-accent-light) !important;
+}
+
+.hover\:bg-pink-50:hover,
+.hover\:bg-pink-100:hover,
+.hover\:bg-pink-100\/60:hover,
+.hover\:bg-pink-200:hover,
+.hover\:bg-pink-200\/50:hover,
+.hover\:bg-pink-200\/70:hover,
+.hover\:bg-pink-200\/80:hover {
+  background-color: var(--theme-accent-subtle) !important;
+}
+
+/* Borders */
+.border-pink-100,
+.border-pink-200,
+.border-pink-200\/50,
+.border-pink-200\/60,
+.border-pink-200\/70,
+.border-pink-200\/80,
+.border-pink-300,
+.border-pink-300\/60,
+.border-pink-400,
+.border-pink-500 {
+  border-color: var(--theme-accent-border) !important;
+}
+
+.divide-pink-100\/60 > :not([hidden]) ~ :not([hidden]),
+.divide-pink-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--theme-accent-border) !important;
+}
+
+.ring-pink-300,
+.ring-pink-400,
+.ring-pink-500 {
+  --tw-ring-color: var(--theme-accent) !important;
+}
+
+.fill-pink-500,
+.fill-pink-600 {
+  fill: var(--theme-accent) !important;
+}
+
+.stroke-pink-500,
+.stroke-pink-600 {
+  stroke: var(--theme-accent) !important;
+}
+
+.decoration-pink-300,
+.decoration-pink-400 {
+  text-decoration-color: var(--theme-accent) !important;
+}
+
+/* Gradients that used pink / rose to match chosen theme */
+.from-pink-500.to-rose-400,
+.from-pink-600.to-rose-500,
+.from-pink-400.to-rose-300,
+.from-pink-500.to-pink-600,
+.from-pink-200\/60.to-rose-100\/70,
+.from-pink-300.to-rose-200 {
+  background-image: var(--theme-gradient) !important;
+  color: var(--theme-accent-btn-text) !important;
+}
+
+.from-pink-500.to-rose-400 *,
+.from-pink-600.to-rose-500 *,
+.from-pink-400.to-rose-300 *,
+.from-pink-500.to-pink-600 * {
+  color: var(--theme-accent-btn-text) !important;
+  fill: var(--theme-accent-btn-text) !important;
+}
+
+/* Range input styling for player scrubber slider */
+input[type="range"].pink-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--theme-accent) !important;
+  border: 2.5px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px var(--theme-accent);
+  transition: transform 0.1s ease;
+}
+
+input[type="range"].pink-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+input[type="range"].pink-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: var(--theme-accent) !important;
+  border: 2.5px solid #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px var(--theme-accent);
+}
+
+/* Custom scrollbar */
+.y2k-scrollbar::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+.y2k-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.y2k-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--theme-accent-border) !important;
+  border-radius: 4px;
+}
+.y2k-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-accent) !important;
+}
